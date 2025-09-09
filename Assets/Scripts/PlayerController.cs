@@ -12,12 +12,6 @@ public class PlayerController : MonoBehaviour
 		collider = GetComponent<Collider>();
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void FixedUpdate()
 	{
 		if (Input.GetKey(KeyCode.W))
@@ -36,5 +30,5 @@ public class PlayerController : MonoBehaviour
 		{
 			rb.AddForce(Vector3.right * speed);
 		}
-	}a
+	}
 }
