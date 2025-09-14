@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class RoadController : MonoBehaviour
 {
+	[SerializeField] GameObject collectItemPrefab;
     Rigidbody rigidbody;
 	bool isDropping = false;
 
@@ -18,6 +19,12 @@ public class RoadController : MonoBehaviour
 		else
 		{
 			transform.Rotate(Vector3.right*90);
+		}
+
+		int random2 = Random.Range(0, 2);
+		if (random2 == 0)
+		{
+			Instantiate(collectItemPrefab, transform.position + new Vector3(0, .7f, 0), Quaternion.identity);
 		}
 	}
 
@@ -39,7 +46,7 @@ public class RoadController : MonoBehaviour
 
 	IEnumerator DropBlock()
 	{
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(1.5f);
 		if (!isDropping)
 		{
 			transform.position = new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z);
